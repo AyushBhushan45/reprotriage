@@ -1,0 +1,19 @@
+# Dogfood: ReproTriage running on its own repo
+name: ReproTriage (dogfood)
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
+permissions:
+  issues: write
+  pull-requests: write
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run ReproTriage in dry-run mode
+        env:
+          INPUT_DRY_RUN: "true"
+        run: python src/main.py
