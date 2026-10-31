@@ -1,0 +1,22 @@
+name: "ReproTriage"
+description: "Reproduction-first triage for OSS maintainers: issue completeness + PR readiness checks, one explainable updatable report, no auto-close."
+author: "Ayush Bhushan"
+branding:
+  icon: "check-circle"
+  color: "blue"
+inputs:
+  github-token:
+    description: "GitHub token (defaults to the workflow token)"
+    required: false
+    default: "${{ github.token }}"
+  mode:
+    description: "report-only (default, comment only) or label (comment + suggested labels)"
+    required: false
+    default: "report-only"
+  dry-run:
+    description: "true = print the report to the job log instead of commenting"
+    required: false
+    default: "false"
+runs:
+  using: "docker"
+  image: "Dockerfile"
