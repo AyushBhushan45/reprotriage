@@ -1,0 +1,5 @@
+# ReproTriage's own config (also serves as the example config)
+min_pr_description_chars: 80
+max_pr_files: 30
+require_linked_issue: true
+require_tests: true
